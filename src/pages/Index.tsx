@@ -133,10 +133,10 @@ const Index = () => {
                 <div className="text-center space-y-2">
                   <h3 className="text-2xl font-bold text-foreground flex items-center justify-center space-x-2">
                     <Sparkles className="h-6 w-6 text-primary" />
-                    <span>Step 2: Your AI Commentary</span>
+                    <span>Step 2: Listen to Your Audio</span>
                   </h3>
                   <p className="text-muted-foreground">
-                    Watch as AI creates professional sports commentary for your video
+                    AI-generated sports commentary audio ready to play
                   </p>
                 </div>
                 
