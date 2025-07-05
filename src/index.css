@@ -2,39 +2,53 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* ESPN-inspired Sports AI Design System - All colors MUST be HSL */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 210 17% 8%;
+    --foreground: 0 0% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 215 28% 12%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 215 28% 12%;
+    --popover-foreground: 0 0% 98%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Sports Red - Bold and energetic */  
+    --primary: 0 84% 57%;
+    --primary-foreground: 0 0% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Navy Blue - Professional and trustworthy */
+    --secondary: 217 91% 25%;
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 215 20% 20%;
+    --muted-foreground: 215 15% 65%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 0 84% 57%;
+    --accent-foreground: 0 0% 98%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 57%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 215 20% 25%;
+    --input: 215 20% 20%;
+    --ring: 0 84% 57%;
+
+    /* Sports-themed gradients */
+    --gradient-sports: linear-gradient(135deg, hsl(0 84% 57%), hsl(217 91% 25%));
+    --gradient-energy: linear-gradient(45deg, hsl(0 84% 57%), hsl(15 90% 55%));
+    --gradient-hero: linear-gradient(135deg, hsl(217 91% 25%) 0%, hsl(0 84% 57%) 100%);
+    
+    /* Shadows and effects */
+    --shadow-sports: 0 10px 40px -10px hsl(0 84% 57% / 0.4);
+    --shadow-glow: 0 0 30px hsl(0 84% 57% / 0.5);
+    --shadow-card: 0 4px 20px hsl(215 28% 12% / 0.3);
+
+    /* Animation variables */
+    --animation-sports: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --animation-bounce: bounce 1s infinite;
 
     --radius: 0.5rem;
 
@@ -91,6 +105,33 @@ All colors MUST be HSL.
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+/* Sports-themed utility classes */
+@layer components {
+  .sports-gradient {
+    background: var(--gradient-sports);
+  }
+  
+  .energy-gradient {
+    background: var(--gradient-energy);
+  }
+  
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+  
+  .sports-shadow {
+    box-shadow: var(--shadow-sports);
+  }
+  
+  .glow-effect {
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .card-shadow {
+    box-shadow: var(--shadow-card);
   }
 }
 
