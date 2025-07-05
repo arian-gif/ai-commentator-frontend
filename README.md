@@ -1,73 +1,45 @@
-# Welcome to your Lovable project
+# 🏀 AI Sports Commentary Frontend
 
-## Project info
+This is a modern **React + TypeScript** frontend application that lets users upload short sports videos and receive AI-generated commentary. The interface was designed using **Lovable** and styled with **Tailwind CSS** for a sleek and responsive experience.
 
-**URL**: https://lovable.dev/projects/9dfec6c1-e0bb-43d1-be6b-9a5b2a0f3550
+---
 
-## How can I edit this code?
+## ✨ Features
 
-There are several ways of editing your application.
+- 🎥 Upload MP4 sports highlight clips  
+- ⚡ Beautiful animated hero section with blur + pulse effects  
+- 🤖 Seamless integration with FastAPI backend for AI commentary  
+- 🗣️ Clean card-based UI to display dynamic generated commentary  
+- 📱 Fully responsive design  
 
-**Use Lovable**
+---
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/9dfec6c1-e0bb-43d1-be6b-9a5b2a0f3550) and start prompting.
+## 🧠 Tech Stack
 
-Changes made via Lovable will be committed automatically to this repo.
+- **React** + **TypeScript**
+- **Tailwind CSS**
+- **Lovable.dev** (UI scaffolding)
+- **Axios** for backend communication
 
-**Use your preferred IDE**
+---
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 🚀 How It Works
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+1. User uploads a short sports video clip (.mp4)
+2. The frontend sends the video to the backend (see link below)
+3. The backend uses Whisper (for audio), Gemini (for text generation), and optionally CV (for silent videos)
+4. The generated commentary is displayed in a polished UI card
 
-Follow these steps:
+---
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+## 📦 Backend Repository
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+AI backend powered by FastAPI, Whisper, and Gemini:  
+🔗 [https://github.com/arian-gif/ai-commentator-backend](https://github.com/arian-gif/ai-commentator-backend)
 
-# Step 3: Install the necessary dependencies.
-npm i
+---
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+## 🛠 Deployment
 
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/9dfec6c1-e0bb-43d1-be6b-9a5b2a0f3550) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Deployment of the frontend is in progress.  
+In the meantime, feel free to explore the codebase and backend functionality via the link above.
