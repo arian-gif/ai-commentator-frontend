@@ -8,6 +8,8 @@ import { Zap, Sparkles } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import heroBackground from '../assets/sports-hero-bg.jpg';
 
+const backUrl= 'http://localhost:8000/upload/'
+
 const Index = () => {
   const [selectedVideo, setSelectedVideo] = useState<File | null>(null);
   const [commentary, setCommentary] = useState('');
@@ -15,36 +17,51 @@ const Index = () => {
   const { toast } = useToast();
 
   const generateCommentary = async () => {
-    if (!selectedVideo) {
-      toast({
-        title: "No Video Selected",
-        description: "Please upload a video first before generating commentary.",
-        variant: "destructive",
-      });
-      return;
+  if (!selectedVideo) {
+    toast({
+      title: "No Video Selected",
+      description: "Please upload a video first before generating commentary.",
+      variant: "destructive",
+    });
+    return;
+  }
+
+  setIsGenerating(true);
+
+  try {
+    const formData = new FormData();
+    formData.append("file", selectedVideo);
+
+    const response = await fetch(backUrl, {
+      method: "POST",
+      body: formData,
+    });
+
+    if (!response.ok) {
+      console.error("Error uploading video:", response.statusText);
+      throw new Error("Failed to generate commentary.");
     }
 
-    setIsGenerating(true);
-    
-    // Simulate AI processing with realistic delay
-    setTimeout(() => {
-      const sampleCommentaries = [
-        "WHAT A SPECTACULAR PLAY! The athlete shows incredible skill and determination as they make this jaw-dropping move! The crowd is on their feet and you can feel the electric energy in the stadium! This is the kind of moment that defines champions - pure athleticism and heart on full display!",
-        "UNBELIEVABLE! Did you see that technique? That's years of training and dedication paying off right there! The precision, the timing, the sheer willpower - this is what sports dreams are made of! Ladies and gentlemen, we are witnessing greatness in action!",
-        "OH MY GOODNESS! What an absolutely stunning display of athletic prowess! The way they executed that move with such finesse and power is simply breathtaking! This is why we love sports - these incredible moments that leave us speechless and inspired!",
-        "INCREDIBLE! The intensity, the passion, the raw talent on display here is absolutely phenomenal! This athlete is giving everything they've got and you can see the determination in every movement! This is the kind of performance that becomes legendary!"
-      ];
-      
-      const randomCommentary = sampleCommentaries[Math.floor(Math.random() * sampleCommentaries.length)];
-      setCommentary(randomCommentary);
-      setIsGenerating(false);
-      
-      toast({
-        title: "Commentary Generated!",
-        description: "Your AI sports commentary is ready to view!",
-      });
-    }, 3000);
-  };
+    const data = await response.json();
+    setCommentary(data.commentary);
+    console.log("Generated Commentary:", data.commentary);
+
+    toast({
+      title: "Commentary Generated!",
+      description: "Your AI sports commentary is ready to view!",
+    });
+  } catch (error) {
+    console.error(error);
+    toast({
+      title: "Error",
+      description: "Something went wrong while generating commentary.",
+      variant: "destructive",
+    });
+  } finally {
+    setIsGenerating(false);
+  }
+};
+
 
   const handleVideoSelect = (file: File) => {
     setSelectedVideo(file);
@@ -126,7 +143,7 @@ const Index = () => {
                 </Button>
               </div>
             )}
-
+            
             {/* Commentary Display */}
             <Card className="p-8 card-shadow backdrop-blur-sm bg-card/90">
               <div className="space-y-6">
